@@ -14,9 +14,9 @@
                       (list item))))
 
 (defun timestamp (&optional (time (get-universal-time)))
-  "Returns a timestamp in the following format:
-YYYY.MM.DD-hh:mm:ss-GMT"
-  (format NIL "~:@{~4,'0d.~2,'0d.~2,'0d_~2,'0d-~2,'0d-~2,'0d~}-GMT"
+  "Formats the argument time (if omitted, get-universal-time is used) in the following format:
+YYYY-MM-DD-hhmm"
+  (format NIL "~:@{~4,'0d-~2,'0d-~2,'0d-~2,'0d~2,'0d~}"
           (subseq (nreverse (multiple-value-list (decode-universal-time time 0))) 3)))
 
 (defun search* (thing place)
